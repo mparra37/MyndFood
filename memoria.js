@@ -1,4 +1,4 @@
-const { OpenAI } = require("langchain/llms/openai");
+const { OpenAI } = require("@langchain/openai");
 const { BufferMemory } = require("langchain/memory");
 const { ConversationChain } = require("langchain/chains");
 const readline = require("readline");
@@ -12,7 +12,7 @@ require('dotenv').config();
 async function crear_escenario(){
     try{
       const data = await fs.readFile("./prompt.txt", "utf-8");
-      console.log(data);
+      //console.log(data);
       return data;
     }catch(err){
       console.error(err);
@@ -31,7 +31,9 @@ const rl = readline.createInterface({
 
 
 const llm = new OpenAI({
-  openAIApiKey: process.env.OPENAI_API_KEY
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  modelName: "gpt-3.5-turbo-0125",
+  maxTokens: 256,
 });
 
 //const model = new OpenAI({});
@@ -44,6 +46,7 @@ const chain = new ConversationChain({ llm: llm, memory: memory });
 async function msj1(escenario){
   const res1 = await chain.call({ input: escenario });
   console.log({ res1 });
+  return res1.response;
 
   //const res2 = await chain.call({ input: "Cuál es mi nombre?" });
   //console.log({ res2 });
@@ -51,20 +54,23 @@ async function msj1(escenario){
 
 async function iniciar_conversacion(){
     const escenario = await crear_escenario();
-    await msj1(escenario);
+    return await msj1(escenario);
 }
 
-iniciar_conversacion();
+
 
 
 
 async function consultar(prompt){
-  const res1 = await chain.call({ input: prompt });
+  const res1 = await chain.call({ 
+    input: prompt
+});
   console.log({ res1 });
   return res1.response;
 };
 
 async function recibirMsj(){
+
      rl.question("Prompt (escriba salir para terminar): ", async (input) => {
         if(input.toLowerCase() === "salir"){
             console.log("Terminar");
@@ -77,6 +83,11 @@ async function recibirMsj(){
      });
 };
 
-//recibirMsj();
+async function correr(){
+    await iniciar_conversacion();
+    recibirMsj();
+}
 
-module.exports = { consultar };
+//correr();
+
+module.exports = { iniciar_conversacion, consultar };

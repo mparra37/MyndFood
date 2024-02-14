@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const port = 3002;
-const { consultar } = require('./memoria'); 
+const { iniciar_conversacion, consultar } = require('./memoria'); 
 
 // Body parser middleware to handle JSON and URL encoded data
 app.use(express.json());
@@ -16,6 +16,18 @@ app.post('/chat', async (req, res) => {
     const prompt = req.body.prompt;
     try {
         const response = await consultar(prompt);
+        res.json({ message: response });
+    } catch (error) {
+        console.error("Error occurred:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Endpoint to handle chat requests
+app.post('/iniciar', async (req, res) => {
+    const prompt = req.body.prompt;
+    try {
+        const response = await iniciar_conversacion();
         res.json({ message: response });
     } catch (error) {
         console.error("Error occurred:", error);
