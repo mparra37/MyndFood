@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat with GPT</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+    }
+    #response {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-4">MyndFood</h2>
+    
+    <div class="input-group mb-3">
+      <input type="text" id="userInput" class="form-control" placeholder="Type your message" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="btn_iniciar">Iniciar</button>
+    <div id="response"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
