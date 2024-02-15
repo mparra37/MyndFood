@@ -195,6 +195,7 @@
       <!-- added div#buttons -->
       <div id="buttons">
         <!-- index.html -->
+        <button id="initiate-button" type="button">Iniciar</button>
         <button id="connect-button" type="button">Conectar</button>
         <button id="voice-typing-button" type="button">Micrófono</button>
         <button id="talk-button" type="button">Enviar</button>
@@ -216,47 +217,7 @@
     </div>
 
     <script>
-      if ('webkitSpeechRecognition' in window) {
-        var recognition = new webkitSpeechRecognition();
-        recognition.continuous = true; // Set this to true if you want the recognition to continue even after it detects a pause in speaking
-        recognition.interimResults = true; // Show interim results
-        recognition.lang = 'es-MX'; // Set the language of the recognition
-
-        var isRecording = false; // Flag to track recording state
-  
-        // What to do when speech is detected
-        recognition.onresult = function(event) {
-          var final_transcript = "";
-          for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-              final_transcript += event.results[i][0].transcript;
-            }
-          }
-          // Update the text field with the result
-          document.getElementById('user-input-field').value += final_transcript;
-        };
-
-        // Handle end of speech recognition session
-        recognition.onend = function() {
-          // Reset the recording state and button color when recognition ends
-          isRecording = false;
-          document.getElementById('voice-typing-button').style.backgroundColor = ""; // Change to your default button color
-        };
-  
-        // Toggle the speech recognition when the button is clicked
-        document.getElementById('voice-typing-button').addEventListener('click', function() {
-            if (!isRecording) {
-              recognition.start();
-              isRecording = true;
-              this.style.backgroundColor = "green"; // Change button color to green
-            } else {
-              recognition.stop();
-              // Note: The button color will be reset in the onend event handler
-            }
-          });
-        } else {
-          alert("Web Speech API is not supported in this browser.");
-        }
+      
     </script>
 
     <script type="module" src="./langindex.js"></script>

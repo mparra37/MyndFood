@@ -33,7 +33,7 @@ const rl = readline.createInterface({
 const llm = new OpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY,
   modelName: "gpt-3.5-turbo-0125",
-  maxTokens: 256,
+  maxTokens: 128,
 });
 
 //const model = new OpenAI({});
