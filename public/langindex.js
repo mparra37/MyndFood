@@ -64,6 +64,11 @@ async function enviar(){
 
         // Update the response container with the chatText
         responseContainer.innerText = responseData.message; // Display the chatText in the response container
+    
+        // Dispatch a custom event with the chatText
+        const chatResponseEvent = new CustomEvent('chatResponse', { detail: responseData.message });
+        document.dispatchEvent(chatResponseEvent);
+
     } catch (error) {
         console.error('Error sending query to the server:', error);
         responseContainer.textContent = 'Error: Could not get a response.'; // Display error message
@@ -83,6 +88,8 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
     .then(response => response.json())
     .then(data => {
         responseContainer.innerText = data.message;
+        const chatResponseEvent = new CustomEvent('chatResponse', { detail: data.message });
+        document.dispatchEvent(chatResponseEvent);
     })
     .catch((error) => {
         console.error('Error:', error);

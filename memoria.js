@@ -32,7 +32,7 @@ const rl = readline.createInterface({
 
 const llm = new OpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY,
-  modelName: "gpt-3.5-turbo-0125",
+  modelName: "gpt-3.5-turbo-0125", //gpt-4-0125-preview
   maxTokens: 128,
 });
 
@@ -62,6 +62,7 @@ async function iniciar_conversacion(){
 
 
 async function consultar(prompt){
+  console.log(prompt);
   const res1 = await chain.call({ 
     input: prompt
 });
