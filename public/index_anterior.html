@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyndFood</title>
+    <!-- added google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  
+  <body>
+    <h1>MyndFood</h1>
+    <div id="content">
+     <div id="video-wrapper">
+       <div class="video-container">
+         <video id="talk-video" width="360" height="360" autoplay></video>
+       </div>
+     </div>
+     <br />
+
+
+     <div id="right-container">
+
+     <div id="input-container" style="text-align: left;">
+       <textarea type="text" id="user-input-field" placeholder="Hola, Escribe tu pregunta" rows="3" style="font-size: 15px;"></textarea>
+       <div style="height: 1em;"></div> 
+       <hr> 
+       <div style="height: 1em;"></div> 
+       <div style="display: flex; justify-content: center;">
+         <input type="checkbox" id="toggleDID">
+         <label for="toggleDID">Agente Virtual</label>
+     </div>     
+       <div style="height: 1em;"></div> 
+   </div>
+   
+      <!-- added div#buttons -->
+      <div id="buttons">
+        <!-- index.html -->
+        <button id="initiate-button" type="button">Iniciar</button>
+        <button id="connect-button" type="button">Conectar</button>
+        <button id="voice-typing-button" type="button">Micrófono</button>
+        <button id="talk-button" type="button">Enviar</button>
+        <button id="destroy-button" type="button">Terminar</button>
+      </div>
+
+     <!-- ... other HTML ... -->
+      <div id="response-container">Respuesta del Agente Virtual</div> 
+      <!-- ... other HTML ... -->
+
+      <!-- added div#status -->
+      <div id="status">
+        ICE gathering status: <span id="ice-gathering-status-label"></span><br />
+        ICE status: <span id="ice-status-label"></span><br />
+        Peer connection status: <span id="peer-status-label"></span><br />
+        Signaling status: <span id="signaling-status-label"></span><br />
+        Streaming status: <span id="streaming-status-label"></span><br />
+      </div>
+      </div>
+    </div>
+
+    <script>
+      
+    </script>
+
+    <script type="module" src="./langindex.js"></script>
+    <script type="module" src="./streaming-client-api.js"></script>  
+    </body>
+</html>

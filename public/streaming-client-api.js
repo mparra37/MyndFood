@@ -74,13 +74,13 @@ document.addEventListener('chatResponse', async (event) => {
   const chatResponse = event.detail; // The detail property contains the response data
 
   // Check if the "Send to DID" checkbox is checked
-  const toggleDIDCheckbox = document.getElementById('toggleDID');
-  if (toggleDIDCheckbox && toggleDIDCheckbox.checked) {
+  //const toggleDIDCheckbox = document.getElementById('toggleDID');
+  //if (toggleDIDCheckbox && toggleDIDCheckbox.checked) {
     // Only call handleDIDStreaming if the checkbox is checked
-    handleDIDStreaming(chatResponse);
-  } else {
+    //handleDIDStreaming(chatResponse);
+  //} else {
     console.log("DID streaming is toggled off. Not sending to DID.");
-  }
+  //}
 });
 
 // You need a function like this to handle the streaming logic with D-ID API

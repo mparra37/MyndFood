@@ -1,6 +1,6 @@
 
 
-function enviar(){
+/*function enviar(){
     const userInput = document.getElementById('userInput').value;
     fetch('/chat', {
         method: 'POST',
@@ -18,7 +18,7 @@ function enviar(){
     });
 }
 
-document.getElementById('sendButton').addEventListener('click', () => {
+document.getElementById('talk-button').addEventListener('click', () => {
     const userInput = document.getElementById('userInput').value;
     fetch('/chat', {
         method: 'POST',
@@ -51,4 +51,25 @@ document.getElementById('btn_iniciar').addEventListener('click', ()=> {
     .catch((error) => {
         console.error('Error:', error);
     });
+});*/
+
+// Function to toggle button classes
+function toggleButtonClasses() {
+    var button = document.getElementById('voice-typing-button');
+    button.classList.toggle('btn-success');
+    button.classList.toggle('btn-outline-danger');
+}
+
+// Add click event listener to button
+document.getElementById('voice-typing-button').addEventListener('click', toggleButtonClasses);
+
+// Add keydown event listener to document
+document.addEventListener('keydown', function(event) {
+    // Check if the spacebar key was pressed
+    if (event.key === " " || event.keyCode === 32) {
+        // Prevent the default spacebar action (scrolling the page down)
+        event.preventDefault();
+        // Toggle the button classes
+        toggleButtonClasses();
+    }
 });

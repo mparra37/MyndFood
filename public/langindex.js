@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.onend = function() {
           // Reset the recording state and button color when recognition ends
           isRecording = false;
-          document.getElementById('voice-typing-button').style.backgroundColor = ""; // Change to your default button color
+          document.getElementById('voice-typing-button').classList.remove('btn-success');
+          document.getElementById('voice-typing-button').classList.add('btn-outline-danger'); // Change to your default button color
         };
   
         // Toggle the speech recognition when the button is clicked
@@ -32,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isRecording) {
               recognition.start();
               isRecording = true;
-              this.style.backgroundColor = "green"; // Change button color to green
+              this.classList.remove('btn-outline-danger'); // Remove the btn-success class
+              this.classList.add('btn-success') // Change button color to green
             } else {
               recognition.stop();
               // Note: The button color will be reset in the onend event handler
@@ -122,3 +124,25 @@ document.getElementById('talk-button').addEventListener('click', () => {
 });
 
 
+/*
+function toggleButtonClasses() {
+    var button = document.getElementById('voice-typing-button');
+    button.classList.toggle('btn-success');
+    button.classList.toggle('btn-outline-danger');
+}
+
+// Add click event listener to button
+document.getElementById('voice-typing-button').addEventListener('click', toggleButtonClasses);
+
+// Add keydown event listener to document
+document.addEventListener('keydown', function(event) {
+    // Check if the spacebar key was pressed
+    if (event.key === " " || event.keyCode === 32) {
+        // Prevent the default spacebar action (scrolling the page down)
+        event.preventDefault();
+        // Toggle the button classes
+        toggleButtonClasses();
+    }
+});
+
+*/
