@@ -30,9 +30,11 @@ const iceStatusLabel = document.getElementById('ice-status-label');
 const iceGatheringStatusLabel = document.getElementById('ice-gathering-status-label');
 const signalingStatusLabel = document.getElementById('signaling-status-label');
 const streamingStatusLabel = document.getElementById('streaming-status-label');
+//var conectado = false;
 
 const connectButton = document.getElementById('connect-button');
 connectButton.onclick = async () => {
+  //conectado = true;
   if (peerConnection && peerConnection.connectionState === 'connected') {
     return;
   }
@@ -73,6 +75,12 @@ connectButton.onclick = async () => {
 document.addEventListener('chatResponse', async (event) => {
   const chatResponse = event.detail; // The detail property contains the response data
 
+
+  if (peerConnection && peerConnection.connectionState === 'connected') {
+    handleDIDStreaming(chatResponse);
+  }else{
+    console.log("DID streaming is toggled off. Not sending to DID.");
+  }
   // Check if the "Send to DID" checkbox is checked
   //const toggleDIDCheckbox = document.getElementById('toggleDID');
   //if (toggleDIDCheckbox && toggleDIDCheckbox.checked) {
@@ -280,7 +288,7 @@ function setVideoElement(stream) {
 
 function playIdleVideo() {
   talkVideo.srcObject = undefined;
-  talkVideo.src = 'idle.mp4';
+  talkVideo.src = 'idle_subtle3.mp4';
   talkVideo.loop = true;
 }
 

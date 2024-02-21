@@ -1,15 +1,20 @@
 // langindex.js
+
+var isRecording = false;
+var recognition = new webkitSpeechRecognition();
 document.addEventListener('DOMContentLoaded', () => {
     if ('webkitSpeechRecognition' in window) {
-        var recognition = new webkitSpeechRecognition();
+        
         recognition.continuous = true; // Set this to true if you want the recognition to continue even after it detects a pause in speaking
         recognition.interimResults = true; // Show interim results
         recognition.lang = 'es-MX'; // Set the language of the recognition
 
-        var isRecording = false; // Flag to track recording state
+        //var isRecording = false; // Flag to track recording state
   
         // What to do when speech is detected
         recognition.onresult = function(event) {
+          //var transcript= document.getElementById('response-field');
+          //transcript.innerHTML = "";
           var final_transcript = "";
           for (var i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
@@ -17,12 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
           // Update the text field with the result
-          document.getElementById('user-input-field').value += final_transcript;
+         document.getElementById('user-input-field').value += final_transcript;
         };
 
         // Handle end of speech recognition session
         recognition.onend = function() {
           // Reset the recording state and button color when recognition ends
+          enviar();
           isRecording = false;
           document.getElementById('voice-typing-button').classList.remove('btn-success');
           document.getElementById('voice-typing-button').classList.add('btn-outline-danger'); // Change to your default button color
@@ -35,21 +41,48 @@ document.addEventListener('DOMContentLoaded', () => {
               isRecording = true;
               this.classList.remove('btn-outline-danger'); // Remove the btn-success class
               this.classList.add('btn-success') // Change button color to green
+              //var transcript= document.getElementById('response-field');
+              //transcript.innerHTML = "";
             } else {
               recognition.stop();
               // Note: The button color will be reset in the onend event handler
-              enviar();
+              //enviar();
             }
           });
       } else {
           alert("Web Speech API is not supported in this browser.");
       };
 });
+
+
+
+// Add keydown event listener to document
+document.addEventListener('keydown', function(event) {
+    // Check if number 0 key was pressed
+    if (event.key === "0" || event.keyCode === 49) {
+        // Prevent the default spacebar action (scrolling the page down)
+        event.preventDefault();
+        var boton_micro = document.getElementById('voice-typing-button');
+
+        if (!isRecording) {
+              recognition.start();
+              isRecording = true;
+              boton_micro.classList.remove('btn-outline-danger'); // Remove the btn-success class
+              boton_micro.classList.add('btn-success') // Change button color to green
+              //var transcript= document.getElementById('response-field');
+              //transcript.innerHTML = "";
+            } else {
+              recognition.stop();
+              // Note: The button color will be reset in the onend event handler
+              //enviar();
+            }
+    }
+});
     
 
 async function enviar(){
     const userInputField = document.getElementById('user-input-field');
-    const responseContainer = document.getElementById('response-container'); // Ensure you have a container with this ID in your HTML
+    const responseContainer = document.getElementById('response-field'); // Ensure you have a container with this ID in your HTML
     const userInput = userInputField.value;
     userInputField.value = ""; // Clear the input field after capturing the value
 
@@ -79,7 +112,7 @@ async function enviar(){
 
 
 document.getElementById('initiate-button').addEventListener('click', ()=> {
-    const responseContainer = document.getElementById('response-container');
+    const responseContainer = document.getElementById('response-field');
     fetch('/iniciar', {
         method: 'POST',
         headers: {
@@ -89,7 +122,7 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
     })
     .then(response => response.json())
     .then(data => {
-        responseContainer.innerText = data.message;
+        responseContainer.innerHTML = data.message;
         const chatResponseEvent = new CustomEvent('chatResponse', { detail: data.message });
         document.dispatchEvent(chatResponseEvent);
     })
@@ -102,24 +135,6 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
 
 
 document.getElementById('talk-button').addEventListener('click', () => {
-    /*
-    const userInput = document.getElementById('user-input-field');
-    fetch('/chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: userInput.value }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        userInput.innerText = data.message;
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-
-    */
     enviar();
 });
 

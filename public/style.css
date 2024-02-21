@@ -221,5 +221,9 @@
 
 #conexiones{
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
+}
+
+#response-field{
+  padding: 10px;
 }
