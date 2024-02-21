@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add keydown event listener to document
 document.addEventListener('keydown', function(event) {
     // Check if number 0 key was pressed
-    if (event.key === "0" || event.keyCode === 49) {
+    if (event.key === "0") {
         // Prevent the default spacebar action (scrolling the page down)
         event.preventDefault();
         var boton_micro = document.getElementById('voice-typing-button');
@@ -76,6 +76,43 @@ document.addEventListener('keydown', function(event) {
               // Note: The button color will be reset in the onend event handler
               //enviar();
             }
+    }
+
+    if(event.key === "1"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "Ejemplos de los colores en los vinos";
+    }
+    if(event.key === "2"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "Cómo observar mejor el vino";
+    }
+    if(event.key === "3"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "El significado de la intensidad del color del vino";
+    }
+    if(event.key === "4"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "Ejemplos de los aromas en los vinos";
+    }
+    if(event.key === "5"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "Cómo liberar los aromas del vino en la copa";
+    }
+    if(event.key === "6"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "La percepción de la acidez del vino";
+    }
+    if(event.key === "7"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "Qué son los taninos del vino";
+    }
+    if(event.key === "8"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "El maridaje para acompañar al vino";
+    }
+    if(event.key === "9"){
+        var campo_tip = document.getElementById("tip_label");
+        campo_tip.innerHTML = "";
     }
 });
     

@@ -203,6 +203,15 @@
    
 }
 
+#div_tips{
+  margin-top: 100px;
+  padding: 30px;
+}
+
+#tip_label{
+  margin-top: 30px;
+}
+
 .opciones {
     margin-top: 20px;
     margin-bottom: 20px;
