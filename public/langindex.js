@@ -135,8 +135,8 @@ async function enviar(){
         console.log(responseData);
 
         // Update the response container with the chatText
-        responseContainer.innerText = responseData.message; // Display the chatText in the response container
-    
+        //responseContainer.innerText = responseData.message; // Display the chatText in the response container
+        animateText(responseData.message, responseContainer);
         // Dispatch a custom event with the chatText
         const chatResponseEvent = new CustomEvent('chatResponse', { detail: responseData.message });
         document.dispatchEvent(chatResponseEvent);
@@ -159,7 +159,8 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
     })
     .then(response => response.json())
     .then(data => {
-        responseContainer.innerHTML = data.message;
+        //responseContainer.innerHTML = data.message;
+        animateText(data.message, responseContainer);
         const chatResponseEvent = new CustomEvent('chatResponse', { detail: data.message });
         document.dispatchEvent(chatResponseEvent);
     })
@@ -167,6 +168,21 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
         console.error('Error:', error);
     });
 });
+
+function animateText(text, container) {
+    const words = text.split(' '); // Split the text into words
+    container.innerHTML = ''; // Clear the container
+    let i = 0;
+    
+    const interval = setInterval(() => {
+        if (i < words.length) {
+            container.innerHTML += words[i] + ' '; // Append word by word
+            i++;
+        } else {
+            clearInterval(interval); // Stop the interval when all words are displayed
+        }
+    }, 150); // Adjust the speed as needed
+}
 
 
 
