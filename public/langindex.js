@@ -118,6 +118,9 @@ document.addEventListener('keydown', function(event) {
     
 
 async function enviar(){
+     var sendingSound = new Audio('loading.mp3');
+        // Play the sending sound
+    sendingSound.play();
     const userInputField = document.getElementById('user-input-field');
     const responseContainer = document.getElementById('response-field'); // Ensure you have a container with this ID in your HTML
     const userInput = userInputField.value;
@@ -132,14 +135,19 @@ async function enviar(){
             body: JSON.stringify({ prompt: userInput })
         });
         const responseData = await response.json();
+
+        const chatResponseEvent = new CustomEvent('chatResponse', { detail: responseData.message });
+        document.dispatchEvent(chatResponseEvent);
+
         console.log(responseData);
 
         // Update the response container with the chatText
         //responseContainer.innerText = responseData.message; // Display the chatText in the response container
         animateText(responseData.message, responseContainer);
         // Dispatch a custom event with the chatText
-        const chatResponseEvent = new CustomEvent('chatResponse', { detail: responseData.message });
-        document.dispatchEvent(chatResponseEvent);
+        
+
+        
 
     } catch (error) {
         console.error('Error sending query to the server:', error);
