@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add keydown event listener to document
 document.addEventListener('keydown', function(event) {
     // Check if number 0 key was pressed
-    if (event.key === "0") {
+    if (event.key === " ArrowDown" || event.keyCode===40) {
         // Prevent the default spacebar action (scrolling the page down)
         event.preventDefault();
         var boton_micro = document.getElementById('voice-typing-button');
@@ -77,6 +77,8 @@ document.addEventListener('keydown', function(event) {
               //enviar();
             }
     }
+
+    /*
 
     if(event.key === "1"){
         var campo_tip = document.getElementById("tip_label");
@@ -114,6 +116,8 @@ document.addEventListener('keydown', function(event) {
         var campo_tip = document.getElementById("tip_label");
         campo_tip.innerHTML = "";
     }
+
+    */
 });
     
 

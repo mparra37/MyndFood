@@ -11,7 +11,7 @@ require('dotenv').config();
 
 async function crear_escenario(){
     try{
-      const data = await fs.readFile("./prompt.txt", "utf-8");
+      const data = await fs.readFile("./prompt2.txt", "utf-8");
       //console.log(data);
       return data;
     }catch(err){
@@ -32,7 +32,7 @@ const rl = readline.createInterface({
 
 const llm = new OpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY,
-  modelName: "gpt-4-turbo-preview",
+  modelName: "gpt-3.5-turbo-0125", //gpt-4-turbo-preview
   temperature: 0.2, //gpt-3.5-turbo-0125
   maxTokens: 128,
 });

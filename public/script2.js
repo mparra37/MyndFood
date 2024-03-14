@@ -1,17 +1,58 @@
+/*
+* Pasos
+* 1.- Introducción
+* 2.- Colores 
+*    2.1.- respuesta no esperada
+     2.2.- respuesta esperada pero corta
+     2.3.- respuesta del color del vino
+  3.- Aromas
+     3.1.- primeros aromas
+     3.2.- liberar aromas
+     3.3.- respuesta de los aromas
+  4.- Sabor
+     4.1.- primeros sabores
+     4.2.- segundo sorbo
+     4.3.- respuesta del sabor
+  5.- Maridaje
+     5.1.- No le gustó
+     5.2.- Si le gustó
+  6.- Cierre
+
+  Extra: 
+  7.- No tengo respuesta
+*/
+
+var estado = 0;
+
 var talkVideo = document.getElementById("talk-video");
 var btn_iniciar = document.getElementById("btn_inicar");
 
-btn_iniciar.addEventListener('click', playVideo);
+btn_iniciar.addEventListener('click', function() {
+
+  playIdleVideo();
+  //estado = 1;
+    //playVideo("videos/intro.mp4");
+});
+
 
 function playVideo(video_src) {
-  if(video_src === null){
-    video_src = 'videos/intro.mp4'
-  }
+  
+  //if(video_src === null){
+    //video_src = 'videos/intro.mp4'
+  //}
   talkVideo.srcObject = null; // Use null when resetting srcObject
   talkVideo.src = video_src; // Adjusted path
   //talkVideo.loop = true;
   talkVideo.load(); // Load the new video source
-  talkVideo.play(); // Attempt to play the video
+  talkVideo.loop = false;
+  
+  talkVideo.onended = null;
+  // Add an event listener for when the video ends
+  talkVideo.onended = function() {
+      playIdleVideo(); // This function should play the idle video
+  };
+
+  talkVideo.play();
 }
 
 function toggleButtonClasses() {
@@ -52,7 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
           //enviar();
           isRecording = false;
           document.getElementById('voice-typing-button').classList.remove('btn-success');
-          document.getElementById('voice-typing-button').classList.add('btn-outline-danger'); // Change to your default button color
+          document.getElementById('voice-typing-button').classList.add('btn-outline-danger'); 
+          document.getElementById('user-input-field').value = ""// Change to your default button color
         };
   
         // Toggle the speech recognition when the button is clicked
@@ -75,32 +117,35 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 });
 
-var estado = 1;
 
-function respuesta_usuario(){
-   var campo_respuesta = document.getElementById("user-input-field");
-   var respuesta = campo_respuesta.value;
-   campo_respuesta.value = "";
 
-   if(estado === 2){
-     var campo_color = document.getElementById("campo_color");
-     campo_color.innerHTML = respuesta;
-   }
 
-   if(estado === 3){
-     var campo_color = document.getElementById("campo_aroma");
-     campo_color.innerHTML = respuesta;
-   }
+function reproducir_pasos(){
 
-   if(estado === 4){
-     var campo_color = document.getElementById("campo_sabor");
-     campo_color.innerHTML = respuesta;
-   }
+  if(estado==1){
+    playVideo("videos/intro.mp4");
+  }
+  if(estado == 2){
+        playVideo("videos/color.mp4");
+    }
+    if(estado == 3){
+      playVideo("videos/aroma.mp4");
+    }
+    if(estado== 4){
+      playVideo("videos/gusto.mp4");
+    }
+    if(estado==5){
+      playVideo("videos/maridaje.mp4");
+    }
+    if(estado==6){
+      playVideo("videos/cierre.mp4");
+    }
 }
+
 
 document.addEventListener('keydown', function(event) {
     // Check if number 0 key was pressed
-    if (event.key === "0") {
+    if (event.key === " ArrowDown" || event.keyCode===40) {
         // Prevent the default spacebar action (scrolling the page down)
         event.preventDefault();
         var boton_micro = document.getElementById('voice-typing-button');
@@ -116,10 +161,85 @@ document.addEventListener('keydown', function(event) {
               recognition.stop();
               // Note: The button color will be reset in the onend event handler
               //enviar();
-              respuesta_usuario();
+              //respuesta_usuario();
             }
     }
 
+    if (event.key === "ArrowRight" || event.keyCode === 39) {
+        estado++;
+        reproducir_pasos();
+        
+        // Your specific action goes here
+        //console.log('Right arrow key pressed');
+        // For example, if you're handling a carousel, you might call its 'next' function here
+    }
+
+    if (event.key === "ArrowLeft" || event.keyCode === 37) {
+        estado--;
+        reproducir_pasos();
+        
+        // Your specific action goes here
+        //console.log('Right arrow key pressed');
+        // For example, if you're handling a carousel, you might call its 'next' function here
+    }
+
+
+    if(event.key === "1"){
+        if(estado==2){
+          playVideo("videos/color_primero.mp4");
+        }    
+        if(estado==3){
+          playVideo("videos/aroma_primero.mp4");
+        }
+        if(estado==4){
+          playVideo("videos/gusto_primero.mp4");
+        }
+      
+      if(estado==5){
+          playVideo("videos/maridaje_primero.mp4");
+        }
+    }
+
+    if(event.key === "2"){
+        if(estado==2){
+          playVideo("videos/color_segundo.mp4");
+        }  
+        if(estado==3){
+          playVideo("videos/aroma_segundo.mp4");
+        }  
+        if(estado==4){
+          playVideo("videos/gusto_segundo.mp4");
+        }
+        if(estado==5){
+          playVideo("videos/maridaje_segundo.mp4");
+        }
+    }
+
+    if(event.key === "3"){
+        if(estado==2){
+          playVideo("videos/color_tercero.mp4");
+        }    
+        if(estado==3){
+          playVideo("videos/aroma_tercero.mp4");
+        }
+        if(estado==4){
+          playVideo("videos/gusto_tercero.mp4");
+        }
+    }
+
+    if(event.key === "4"){
+        
+          playVideo("videos/lo_siento.mp4");
+            
+    }
+
+    if(event.key === "5"){
+        
+          playVideo("videos/repetir.mp4");
+          
+    }
+
+   /*
     if(event.key === "1"){
         var titulo_accion = document.getElementById("titulo_accion");
         titulo_accion.innerHTML = ""
@@ -176,7 +296,16 @@ document.addEventListener('keydown', function(event) {
     if(event.key === "9"){
        
     }
+
+    */
 });
+
+function playIdleVideo() {
+  talkVideo.srcObject = undefined;
+  talkVideo.src = 'videos/idle_mago.mp4';
+  //talkVideo.src = 'latino_idle.mp4';
+  talkVideo.loop = true;
+}
 
 
 //alert("hola");
