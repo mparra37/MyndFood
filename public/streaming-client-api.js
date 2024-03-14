@@ -47,7 +47,8 @@ connectButton.onclick = async () => {
     headers: {'Authorization': `Basic ${DID_API.key}`, 'Content-Type': 'application/json'},
     body: JSON.stringify({
       //source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_VrFVsnxVajUki3IETwSZr/image.png",
-      source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_cYirYQ0lSDRhPl4HHwww1/image.png",
+      //source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_cYirYQ0lSDRhPl4HHwww1/image.png",
+      source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_lxZSp2ROJ8tvsPvWeYbW3/image.png",
     }),
   });
 
@@ -290,7 +291,7 @@ function setVideoElement(stream) {
 function playIdleVideo() {
   talkVideo.srcObject = undefined;
   //talkVideo.src = 'idle_subtle3.mp4';
-  talkVideo.src = 'latino_idle.mp4';
+  talkVideo.src = 'idle_cris.mp4';
   talkVideo.loop = true;
 }
 
