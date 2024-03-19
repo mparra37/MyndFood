@@ -78,6 +78,18 @@ document.addEventListener('keydown', function(event) {
             }
     }
 
+    if (event.key === "ArrowUp" || event.keyCode === 38) {
+        var responseField = document.getElementById("response-field");
+
+        if (responseField.style.color === "rgb(18, 18, 18)") {
+            responseField.style.color = "white";
+          } else {
+            responseField.style.color = "#121212";
+          }
+        
+        
+    }
+
     /*
 
     if(event.key === "1"){

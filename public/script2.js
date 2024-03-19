@@ -207,6 +207,18 @@ document.addEventListener('keydown', function(event) {
         // For example, if you're handling a carousel, you might call its 'next' function here
     }
 
+    if (event.key === "ArrowUp" || event.keyCode === 38) {
+        var responseField = document.getElementById("response-field");
+
+        if (responseField.style.color === "rgb(18, 18, 18)") {
+            responseField.style.color = "white";
+          } else {
+            responseField.style.color = "#121212";
+          }
+        
+        
+    }
+
 
     if(event.key === "1"){
         if(estado==2){
