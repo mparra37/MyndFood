@@ -164,9 +164,9 @@ async function enviar(){
         // Dispatch a custom event with the chatText
         
         // Wait for 3 seconds before animating the text
-        setTimeout(function() {
+        //setTimeout(function() {
             animateText(responseData.message, responseContainer);
-        }, 3000);    
+        //}, 3000);    
         
 
     } catch (error) {
@@ -192,9 +192,9 @@ document.getElementById('initiate-button').addEventListener('click', ()=> {
         const chatResponseEvent = new CustomEvent('chatResponse', { detail: data.message });
         document.dispatchEvent(chatResponseEvent);
 
-        setTimeout(function() {
+        //setTimeout(function() {
             animateText(data.message, responseContainer);
-        }, 3000);
+        //}, 3000);
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -213,7 +213,7 @@ function animateText(text, container) {
         } else {
             clearInterval(interval); // Stop the interval when all words are displayed
         }
-    }, 300); // Adjust the speed as needed
+    }, 150); // Adjust the speed as needed
 }
 
 
