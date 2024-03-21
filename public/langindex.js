@@ -166,7 +166,7 @@ async function enviar(){
         // Wait for 3 seconds before animating the text
         //setTimeout(function() {
             animateText(responseData.message, responseContainer);
-        //}, 3000);    
+        //, 3000);    
         
 
     } catch (error) {

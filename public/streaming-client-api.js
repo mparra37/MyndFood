@@ -209,6 +209,38 @@ function onSignalingStateChange() {
   signalingStatusLabel.className = 'signalingState-' + peerConnection.signalingState;
 }
 
+function onVideoStatusChange2(videoIsPlaying, stream) {
+  let status;
+  if (videoIsPlaying) {
+    status = 'streaming';
+
+    // Create a video element to play the stream
+    const videoElement = document.createElement('video');
+    videoElement.srcObject = stream;
+
+    // Listen for the 'canplaythrough' event to ensure smooth playback
+    videoElement.addEventListener('canplaythrough', function() {
+      // Now the video is ready to play
+      setVideoElement(stream); // This function should now use videoElement instead of directly using stream
+      videoElement.play(); // Make sure this is okay per your application's logic
+    }, false);
+
+    // It's a good idea to also listen for errors in case the video fails to load
+    videoElement.addEventListener('error', function(e) {
+      console.error('Video playback error:', e);
+      // Handle the error, e.g., by trying to reload the video or playing the idle video
+      playIdleVideo();
+    });
+
+  } else {
+    status = 'empty';
+    playIdleVideo();
+  }
+  streamingStatusLabel.innerText = status;
+  streamingStatusLabel.className = 'streamingState-' + status;
+}
+
+
 function onVideoStatusChange(videoIsPlaying, stream) {
   let status;
   if (videoIsPlaying) {
@@ -244,7 +276,7 @@ function onTrack(event) {
 
         if (videoStatusChanged) {
           videoIsPlaying = report.bytesReceived > lastBytesReceived;
-          onVideoStatusChange(videoIsPlaying, event.streams[0]);
+          onVideoStatusChange2(videoIsPlaying, event.streams[0]);
         }
         lastBytesReceived = report.bytesReceived;
       }

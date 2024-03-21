@@ -73,6 +73,8 @@ Usuario: No gracias.
 Sommerlier: Has completado esta experiencia de degustación de vino. Espero que hayas disfrutado y que esta travesía te haya permitido conectarte plenamente con el vino. Salud y a seguir brindando por la vida.
 Fin del Ejemplo 2
 
+
+
 Ahora, el vino que siguiente que se iniciará degustando es el siguiente: 
 
 Vino: Rosado
