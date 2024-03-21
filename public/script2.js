@@ -263,17 +263,17 @@ document.addEventListener('keydown', function(event) {
 
     if(event.key === "3"){
         if(estado==2){
-          //playVideo("videos/color_tercero.mp4");
+          //playVideo("videos/color_tercero_rosa.mp4");
           playVideo("videos/color_tercero_tinto.mp4");
           animateText(subpasos_color[2], responseContainer);
         }    
         if(estado==3){
-          //playVideo("videos/aroma_tercero.mp4");
+          //playVideo("videos/aroma_tercero_rosa.mp4");
           playVideo("videos/aroma_tercero_tinto.mp4");
           animateText(subpasos_aroma[2], responseContainer);
         }
         if(estado==4){
-          //playVideo("videos/gusto_tercero.mp4");
+          //playVideo("videos/gusto_tercero_rosa.mp4");
           playVideo("videos/gusto_tercero_tinto.mp4");
           animateText(subpasos_gusto[2], responseContainer);
         }
@@ -289,6 +289,43 @@ document.addEventListener('keydown', function(event) {
     if(event.key === "5"){
         
           playVideo("videos/repetir.mp4");
+          animateText(extras_txt[1], responseContainer);
+          
+    }
+
+   
+
+    if(event.key === "6"){
+        
+          playVideo("videos/extra6.mp4");
+          animateText(extras_txt[1], responseContainer);
+          
+    }
+
+    if(event.key === "7"){
+        
+          playVideo("videos/extra7.mp4");
+          animateText(extras_txt[1], responseContainer);
+          
+    }
+
+    if(event.key === "8"){
+        
+          playVideo("videos/extra8.mp4");
+          animateText(extras_txt[1], responseContainer);
+          
+    }
+
+    if(event.key === "9"){
+        
+          playVideo("videos/extra9.mp4");
+          animateText(extras_txt[1], responseContainer);
+          
+    }
+
+     if(event.key === "0"){
+        
+          playVideo("videos/extra0.mp4");
           animateText(extras_txt[1], responseContainer);
           
     }
