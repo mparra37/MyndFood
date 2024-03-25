@@ -155,8 +155,8 @@ function reproducir_pasos(){
       animateText(pasosPrincipales[3], responseContainer);
     }
     if(estado==5){
-      //playVideo("videos/maridaje.mp4");
-      playVideo("videos/maridaje_tinto.mp4");
+      playVideo("videos/maridaje.mp4");
+      //playVideo("videos/maridaje_tinto.mp4");
       animateText(pasosPrincipales[4], responseContainer);
     }
     if(estado==6){
@@ -263,18 +263,18 @@ document.addEventListener('keydown', function(event) {
 
     if(event.key === "3"){
         if(estado==2){
-          //playVideo("videos/color_tercero_rosa.mp4");
-          playVideo("videos/color_tercero_tinto.mp4");
+          playVideo("videos/color_tercero_rosa.mp4");
+          //playVideo("videos/color_tercero_tinto.mp4");
           animateText(subpasos_color[2], responseContainer);
         }    
         if(estado==3){
-          //playVideo("videos/aroma_tercero_rosa.mp4");
-          playVideo("videos/aroma_tercero_tinto.mp4");
+          playVideo("videos/aroma_tercero_rosa.mp4");
+          //playVideo("videos/aroma_tercero_tinto.mp4");
           animateText(subpasos_aroma[2], responseContainer);
         }
         if(estado==4){
-          //playVideo("videos/gusto_tercero_rosa.mp4");
-          playVideo("videos/gusto_tercero_tinto.mp4");
+          playVideo("videos/gusto_tercero_rosa.mp4");
+          //playVideo("videos/gusto_tercero_tinto.mp4");
           animateText(subpasos_gusto[2], responseContainer);
         }
     }

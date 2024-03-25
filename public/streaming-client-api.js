@@ -325,7 +325,8 @@ function playIdleVideo() {
   talkVideo.srcObject = undefined;
   //talkVideo.src = 'idle_subtle3.mp4';
   //talkVideo.src = 'idle_cris.mp4';
-  talkVideo.src = "somme_idle.mp4"
+  //talkVideo.src = "idle_mago.mp4";
+  talkVideo.src = "somme_idle.mp4";  
   talkVideo.loop = true;
 }
 
