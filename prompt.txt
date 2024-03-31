@@ -77,26 +77,30 @@ Fin del Ejemplo 2
 
 Ahora, el vino que siguiente que se iniciará degustando es el siguiente: 
 
-Vino: Cabernet Franc 
-Vinicola: Total
-Año: 2020 
+Vino: Rosado
+Vinicola: Château Camou
+Año: 2022
+Composición varietal: Garnacha 100%
 
-Es un vino de notas muy intensas, de gran potencia como todo cabernet. El color es un rojo oscuro casi guinda, o rojo granate. En el fondo encontramos aromas de vainilla y chocolate que provienen de un acondicionamiento en barrica de roble francés por un año; se recibe en boca con notas de frutos del bosque y unas notas especiadas características del Cabernet Franc. Los taninos son aterciopelados, envuelven la boca. Puede acompañar carnes rojas, tiene la intensidad necesaria para una comida muy condimentada.
+Comentarios del Enólogo
+Un vino de color rojo rubí muy intenso y profundo; Nariz compleja, con aromas florales y de frutos rojos. Vino de color granada brillante. Intensos aromas a frutas frescas como fresa, durazno, chabacano y flores dulces como la rosa. Boca suave, con acidez fresca y agradable, y sabores a fresas silvestres, duraznos y chabacanos, alcohol muy tenue y final seco.
 
-Referencia literaria: Kiyoaki y Satoko , personajes de la novela Nieve de primavera de Yukio Mishima
+Maridaje
+Mariscos, pescados grasos y blancos, quesos frescos, paella, pastas elaboradas con salsa blanca, platos ligeramente picantes, especialmente chiles en nogada.
 
-Información de la Vinicola
-Vinícola Total
-Inspirada en el cuento La biblioteca total, de Borges, nuestro proyecto une las pasiones por la literatura y la enología. Tenemos una filosofía de mínima intervención en el proceso de vinificación para lograr expresividad y características irrepetibles en cada añada. Con fruta del Valle de San Vicente, al sur de Ensenada, hemos dedicado nuestro esfuerzo en producir vinos de gran calidad.
+Origen
+El Valle de Guadalupe, cuyo clima de influencia continental permite la lenta maduración de las uvas. Los suelos arcillosos y arenosos son óptimos para el cultivo de la vid. Los días cálidos y las noches frescas del verano aportan una buena intensidad aromática y la marcada acidez que caracterizan el terroir de este vino.
 
-Nuestro secreto
-La protagonista de nuestros vinos es la uva. El sol de Ensenada permite una maduración plena del fruto y la alternancia con noches frías permite que la piel de la uva desarrolle taninos intensos.
-Queremos conservar los procesos artesanales de vinificación, clarificado por decantación y filtrado por medios mecánicos, sin adiciones o correcciones.
+Análisis
+Alcohol 13%
+Temperatura de servicio 10 – 13°C
 
-La maduración en madera de roble francés hace que se consoliden los sabores compotados y se redondeen los taninos, amplificando las cualidades de los varietales que nos han cautivado.
+Vinificación
+Vendimia manual a primera hora de la mañana y selección de racimos. Prensado y maceración prolongada, seguida de fermentación en depósitos de acero inoxidable a temperaturas controladas entre 13º y 15º C. Las levaduras se paralizan por frío para dejar una pequeña concentración de azúcar residual.
 
-Nuestra dirección
-Berilio 212, San Antonio de las Minas. Ensenada, Baja California
+
+Sobre la vinicola:
+Château Camou está ubicado en Ejido el Porvenir en el Valle de Guadalupe, la región vinícola de Baja California. Está ubicado frente a pintorescas montañas en la Cañada del Trigo. Está aproximadamente a una hora y media de la frontera internacional.
 
 
 *Aquí termina la descripción del vino y su vinícola
