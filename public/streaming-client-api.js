@@ -107,7 +107,7 @@ async function handleDIDStreaming(chatResponse) {
         script: {
           type: 'text',
           subtitles: 'false',
-          provider: { type: 'microsoft', voice_id: 'es-MX-GerardoNeural' }, //es-MX-JorgeNeural
+          provider: { type: 'microsoft', voice_id: 'en-US-AndrewNeural' }, //es-MX-JorgeNeural, en-US-AndrewNeural, es-MX-GerardoNeural
           ssml: false,
           input: chatResponse  // Send the chatResponse to D-ID
         },

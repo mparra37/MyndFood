@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         recognition.continuous = true; // Set this to true if you want the recognition to continue even after it detects a pause in speaking
         recognition.interimResults = true; // Show interim results
-        recognition.lang = 'es-MX'; // Set the language of the recognition
+        recognition.lang = 'en-US'; // en-US, es-MX
 
         //var isRecording = false; // Flag to track recording state
   

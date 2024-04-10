@@ -11,7 +11,7 @@ require('dotenv').config();
 
 async function crear_escenario(){
     try{
-      const data = await fs.readFile("./prompt_english.txt", "utf-8");
+      const data = await fs.readFile("./prompt_english3.txt", "utf-8");
       //console.log(data);
       return data;
     }catch(err){
