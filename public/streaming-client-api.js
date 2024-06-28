@@ -1,6 +1,10 @@
 //streaming-client-api.js
 // Import the DID_API configuration
-import DID_API from '../../api.json' assert { type: 'json' };
+//import DID_API from '../../api.json' assert { type: 'json' };
+//const DID_API = require('../../api.json');
+'use strict';
+const fetchJsonFile = await fetch("./api.json")
+const DID_API = await fetchJsonFile.json()
 
 
 if (DID_API.key === '🤫') {
