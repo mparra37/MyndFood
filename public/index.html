@@ -12,20 +12,20 @@
 
 
 
-    <div id="principal class="container-fluid">
+    <div id="principal" class="container-fluid">
 
         <div class="row">
 
-            <div id="izq" class="border col-9">
+            <div id="izq" class="border col-12">
 
                 <div class="row">
 
                     <div id="video_llamada" class="col-12 d-flex justify-content-center align-items-center px-0">
-                        <video id="talk-video" width="360" height="360" autoplay></video>
+                        <video id="talk-video" width="700" height="700" autoplay></video>
 
                     </div>
                     
-                    <div id="response-container" class="col-12">
+                    <div id="response-container" class="col-12 d-none">
                         <p  id="response-field" class="text-center"> </p>
 
                     </div>
@@ -70,7 +70,7 @@
 
             </div>
 
-            <div id="der" class="d-flex flex-column border col-3">
+            <div id="der" class="d-flex flex-column border col-3 d-none">
 
                 <!--
 
@@ -89,9 +89,9 @@
 
             -->
 
-                <div id="campo_chat" class="col-12 mt-auto">
+                <div id="campo_chat" class="col-12 mt-auto d-none">
                     <div class="form-group">
-                        <textarea id="user-input-field" class="form-control" rows="5" placeholder="Escribe tu mensaje"></textarea>
+                        <textarea id="user-input-field" class="form-control" rows="1" placeholder="Escribe tu mensaje"></textarea>
                     </div>
                     <button id="talk-button" class="btn btn-primary">Enviar</button>
                 </div>
@@ -102,7 +102,7 @@
 
 
         </div>
-        <div id="conexiones" class="col-12">
+        <div id="conexiones" class="col-12 d-none">
             ICE gathering status: <span id="ice-gathering-status-label"></span>
             ICE status: <span id="ice-status-label"></span>
             Peer connection status: <span id="peer-status-label"></span>

@@ -48,12 +48,18 @@ connectButton.onclick = async () => {
 
   const sessionResponse = await fetch(`${DID_API.url}/talks/streams`, {
     method: 'POST',
-    headers: {'Authorization': `Basic ${DID_API.key}`, 'Content-Type': 'application/json'},
+    //headers: {'Authorization': `Basic ${DID_API.key}`, 'Content-Type': 'application/json'},
+    headers: {
+          Authorization: `Basic ${btoa(DID_API.key + ':')}`,
+          'Content-Type': 'application/json'
+        },
     body: JSON.stringify({
       //source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_VrFVsnxVajUki3IETwSZr/image.png",
       //source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_cYirYQ0lSDRhPl4HHwww1/image.png",
       //source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_lxZSp2ROJ8tvsPvWeYbW3/image.png",
       source_url: "https://create-images-results.d-id.com/google-oauth2%7C107664625991236743226/upl_Z8DMZTsAwr619vlqkCGPW/image.png",
+      //stream_warmup: true, 
+      //config: { video_quality: 'hd' } 
     }),
   });
 
@@ -73,7 +79,11 @@ connectButton.onclick = async () => {
   const sdpResponse = await fetch(`${DID_API.url}/talks/streams/${streamId}/sdp`,
     {
       method: 'POST',
-      headers: {Authorization: `Basic ${DID_API.key}`, 'Content-Type': 'application/json'},
+      //headers: {Authorization: `Basic ${DID_API.key}`, 'Content-Type': 'application/json'},
+       headers: {
+          'Authorization': `Basic ${btoa(DID_API.key + ':')}`,
+          'Content-Type': 'application/json'
+        },
       body: JSON.stringify({answer: sessionClientAnswer, session_id: sessionId})
     });
 };
@@ -104,14 +114,14 @@ async function handleDIDStreaming(chatResponse) {
     const talkResponse = await fetch(`${DID_API.url}/talks/streams/${streamId}`, {
       method: 'POST',
       headers: { 
-        Authorization: `Basic ${DID_API.key}`, 
+        'Authorization': `Basic ${btoa(DID_API.key + ':')}`, 
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         script: {
           type: 'text',
           subtitles: 'false',
-          provider: { type: 'microsoft', voice_id: 'en-US-AndrewNeural' }, //es-MX-JorgeNeural, en-US-AndrewNeural, es-MX-GerardoNeural
+          provider: { type: 'microsoft', voice_id: 'es-MX-JorgeNeural' }, //es-MX-JorgeNeural, en-US-AndrewNeural, es-MX-GerardoNeural
           ssml: false,
           input: chatResponse  // Send the chatResponse to D-ID
         },
@@ -161,7 +171,7 @@ destroyButton.onclick = async () => {
   await fetch(`${DID_API.url}/talks/streams/${streamId}`, {
     method: 'DELETE',
     headers: {
-      Authorization: `Basic ${DID_API.key}`,
+      'Authorization': `Basic ${btoa(DID_API.key + ':')}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ session_id: sessionId }),
@@ -183,7 +193,7 @@ function onIceCandidate(event) {
     fetch(`${DID_API.url}/talks/streams/${streamId}/ice`, {
       method: 'POST',
       headers: {
-        Authorization: `Basic ${DID_API.key}`,
+        'Authorization': `Basic ${btoa(DID_API.key + ':')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
